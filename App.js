@@ -37,16 +37,19 @@ const Card = (props) => {
         avgRating,
         costForTwo,
     } = restData?.info;
-
+    let arr = costForTwo?.split(" ")
+    let abj = Number(arr[0]?.substring(1))
+    console.log(abj);
+    
     return (
         <div className='restcard'>
             <img className='cardimg' src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + cloudinaryImageId} />
             <div className='Cardtitle'>
-            <h3 className='cardheading'>{name}</h3>
-            <h4 className='cardsub'>{cuisines.join(", ")}</h4>
-            <h4>{costForTwo}</h4>
-            <h4>Avg. Rating{avgRating}</h4>
-            <h4>Delivery Time: {restData.info.sla.deliveryTime} Minutes</h4>
+                <h3 className='cardheading'>{name}</h3>
+                <h4 className='cardsub'>{cuisines.join(", ")}</h4>
+                <h4>{abj/2}</h4>
+                <h4>Avg. Rating{avgRating}</h4>
+                <h4>Delivery Time: {restData.info.sla.deliveryTime} Minutes</h4>
             </div>
         </div>
     );
