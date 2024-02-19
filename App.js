@@ -5,8 +5,11 @@ import ReactDOM from 'react-dom/client';
 const Header = () => {
     return (
         <div className='header'>
-            <div>
-                <img className='headlogo' src='https://png.pngtree.com/png-clipart/20220903/ourmid/pngtree-chef-restaurant-logo-png-image_6136204.png' />
+            <img className='headlogo' src='https://png.pngtree.com/png-clipart/20220903/ourmid/pngtree-chef-restaurant-logo-png-image_6136204.png' />
+
+            <div className='search'>
+                <input className='searchbar' type="text" placeholder="Search For Foods..." /><br />
+                <button className='searchbtn'>Search</button>
             </div>
             <div className='navlink'>
                 <ul>
@@ -38,11 +41,13 @@ const Card = (props) => {
     return (
         <div className='restcard'>
             <img className='cardimg' src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + cloudinaryImageId} />
-            <h3>{name}</h3>
-            <h4>{cuisines.join(", ")}</h4>
+            <div className='Cardtitle'>
+            <h3 className='cardheading'>{name}</h3>
+            <h4 className='cardsub'>{cuisines.join(", ")}</h4>
             <h4>{costForTwo}</h4>
             <h4>Avg. Rating{avgRating}</h4>
             <h4>Delivery Time: {restData.info.sla.deliveryTime} Minutes</h4>
+            </div>
         </div>
     );
 };
@@ -1536,10 +1541,6 @@ const resList =
 const Body = () => {
     return (
         <div className='main'>
-            <div className='search'>
-                <input className='searchbar' type="text" placeholder="Search For Foods..." /><br />
-                <button className='searchbtn'>Search</button>
-            </div>
             <div className='carddisplay'>
                 {
                     resList.map(restaurant => <Card key={restaurant.info.id} restData={restaurant} />)
