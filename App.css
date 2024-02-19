@@ -1,0 +1,51 @@
+.header{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border: 1px solid black;
+}
+.headlogo{
+    width: 100px;
+    padding-left: 10px ;
+    padding-top: 2px;
+}
+.navlink{
+    justify-content: center;
+    margin-right: 30px ;
+    
+}
+.navlink > ul{
+    display: flex;
+    /* margin: 20px ; */
+}
+.navlink > ul > li{
+    list-style: none;
+    padding: 20px 17px 5px 10px;
+    font-size: 24px;
+}
+.search{
+    display: flex;
+    margin: 20px 0px 20px 30rem;
+}
+.searchbar{
+    padding: 11px 10rem;
+    border-radius: 5px;
+    margin-right: 40px;
+    font-size: 20px;
+}
+.searchbtn{
+    padding: 0px  30px;
+    cursor: pointer;
+}
+.card{
+    width: 200px;
+    height: 300px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
+.cardimg{
+    width: 100%;
+    height: 150px;
+}
