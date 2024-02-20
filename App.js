@@ -23,13 +23,12 @@ const Header = () => {
         </div>
     )
 }
-// Data from API
 
 
-
+/// Taking out the data from API through props and destructuring there values
 const Card = (props) => {
     const { restData } = props;
-
+   /// Destructuring
     const {
         cloudinaryImageId,
         name,
@@ -37,6 +36,8 @@ const Card = (props) => {
         avgRating,
         costForTwo,
     } = restData?.info;
+
+    // As the cost of 2 was in string form so we have taken our the int value and converted it to number type
     let arr = costForTwo?.split(" ")
     let abj = Number(arr[0]?.substring(1))
     console.log(abj);
@@ -47,7 +48,7 @@ const Card = (props) => {
             <div className='Cardtitle'>
                 <h3 className='cardheading'>{name}</h3>
                 <h4 className='cardsub'>{cuisines.join(", ")}</h4>
-                <h4>{abj / 2}</h4>
+                <h4>Cost: {abj / 2} /Person</h4>
                 <h4>Avg. Rating{avgRating}</h4>
                 <h4>Delivery Time: {restData.info.sla.deliveryTime} Minutes</h4>
             </div>
