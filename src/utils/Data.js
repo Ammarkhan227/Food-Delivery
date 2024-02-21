@@ -1,61 +1,3 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-
-///Header
-const Header = () => {
-    return (
-        <div className='header'>
-            <img className='headlogo' src='https://png.pngtree.com/png-clipart/20220903/ourmid/pngtree-chef-restaurant-logo-png-image_6136204.png' />
-
-            <div className='search'>
-                <input className='searchbar' type="text" placeholder="Search For Foods..." /><br />
-                <button className='searchbtn'>Search</button>
-            </div>
-            <div className='navlink'>
-                <ul>
-                    <li>Search</li>
-                    <li>Offers</li>
-                    <li>Help</li>
-                    <li>Sign In</li>
-                    <li>Cart</li>
-                </ul>
-            </div>
-        </div>
-    )
-}
-
-
-/// Taking out the data from API through props and destructuring there values
-const Card = (props) => {
-    const { restData } = props;
-   /// Destructuring
-    const {
-        cloudinaryImageId,
-        name,
-        cuisines,
-        avgRating,
-        costForTwo,
-    } = restData?.info;
-
-    // As the cost of 2 was in string form so we have taken our the int value and converted it to number type
-    let arr = costForTwo?.split(" ")
-    let abj = Number(arr[0]?.substring(1))
-    console.log(abj);
-
-    return (
-        <div className='restcard'>
-            <img className='cardimg' src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + cloudinaryImageId} />
-            <div className='Cardtitle'>
-                <h3 className='cardheading'>{name}</h3>
-                <h4 className='cardsub'>{cuisines.join(", ")}</h4>
-                <h4>Cost: {abj / 2} /Person</h4>
-                <h4>Avg. Rating{avgRating}</h4>
-                <h4>Delivery Time: {restData.info.sla.deliveryTime} Minutes</h4>
-            </div>
-        </div>
-    );
-};
-
 const resList =
     [
         {
@@ -1541,26 +1483,4 @@ const resList =
         }
     ]
 
-///Body
-const Body = () => {
-    return (
-        <div className='main'>
-            <div className='carddisplay'>
-                {
-                    resList.map(restaurant => <Card key={restaurant.info.id} restData={restaurant} />)
-                }
-            </div>
-        </div>
-    )
-}
-const App = () => {
-    return (
-        <div>
-            <Header />
-            <Body />
-        </div>
-    )
-}
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App />);
+    export default resList;
