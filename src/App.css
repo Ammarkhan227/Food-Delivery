@@ -43,8 +43,19 @@
     font-weight: 600;
     border-radius: 8px;
 }
-.main{
+.body{
+    width: 100%;
+    height: auto;
     background-color: #282439;
+}
+.resfilter > button{
+    padding: 8px 10px;
+    float: right;
+    margin-right: 80px;
+}
+.resfilter{
+    background-color: #282439;
+    position: absolute;
 }
 .restcard{
     width: 250px;
@@ -71,7 +82,13 @@
 .carddisplay{
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    box-sizing: border-box;
+    position: center;
+    float: right;
+    margin-left: 90px;
+    width: 100%;
+    height: auto;
+    background-color: #282439;
 }
 .cardimg{
     width: 100%;
@@ -90,3 +107,5 @@
 .cardsub{
     font-size: 15px;
 }
+
+
