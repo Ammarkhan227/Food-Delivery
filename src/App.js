@@ -5,7 +5,7 @@ import Body from './Components/Body'
 
 const App = () => {
     return (
-        <div>
+        <div style={{ backgroundColor: '#161934', height: 'auto' }}>
             <Header />
             <Body />
         </div>

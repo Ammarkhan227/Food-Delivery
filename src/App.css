@@ -2,27 +2,26 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  background-color: #282439;
+  background-color: transparent;
 }
 .login {
   margin-top: 12px;
   padding: 5px 15px;
-  font-weight: 700;
-  color: aliceblue;
+  font-weight: 400;
+  color: #e2e2e2;
   text-decoration: none;
   border-style: none;
-  /* transition: all .3s ease-in; */
-  border-color: transparent;
   background-color: transparent;
   font-size: 20px;
 }
 .login:hover {
   cursor: pointer;
   border-radius: 5px;
-  color: #c636ff;
-  font-size: 22px;
-  transform: scale(1.1);
-  transition: 0.5s;
+  /* color: #c636ff; */
+  font-size: 21px;
+  /* transform: scale(1.1);
+  transition: 0.5s; */
+  text-decoration: underline;
 }
 .headlogo {
   width: 100px;
@@ -35,16 +34,17 @@
 }
 .navlink > ul {
   display: flex;
-  /* margin: 20px ; */
 }
 .navlink > ul > li {
   list-style: none;
   padding: 20px 17px 5px 10px;
   font-size: 20px;
   color: #e2e2e2;
+  font-weight: 400;
 }
 .navlink > ul > li:hover {
   cursor: pointer;
+  text-shadow: 2px 2px 20px white;
 }
 .search {
   display: flex;
@@ -60,10 +60,13 @@
   padding: 0px 30px;
   cursor: pointer;
   font-weight: 600;
-  border-radius: 8px;
   font-size: 18px;
   color: #f0f0f0;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: transparent;
+  border-style: none;
+}
+.searchbtn:hover {
+  text-shadow: 2px 2px 20px white;
 }
 .body {
   width: 100%;
@@ -77,9 +80,20 @@
   position: relative;
   float: right;
   margin-right: 40px;
+  background-color: transparent;
+  color: white;
+  border-style: none;
+  font-size: 20px;
+  font-weight: 400;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-.resfilter {
-  background-color: #282439;
+.resfilter > button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid white;
+  box-shadow: 1px;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
 }
 .restcard {
   width: 250px;
@@ -97,9 +111,7 @@
   transition: 0.5s;
   background-color: rgba(255, 255, 255, 0.1);
   box-shadow: 5px;
-  border: 1px solid white;
-  /* border-bottom: 2px solid white; */
-  /* box-shadow: 0px 2px 2px 0px #d56efa; */
+  box-shadow: 1px 1px 10px white;
 }
 .carddisplay {
   display: flex;
@@ -141,4 +153,10 @@
   padding: 5px;
   margin: 20px 5px 20px 5px;
   background-color: lightgray;
+}
+.shimbtn {
+  padding: 17px 72px;
+  position: relative;
+  float: right;
+  margin-right: 40px;
 }

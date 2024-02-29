@@ -27,35 +27,35 @@ const Body = () => {
     };
 
     // Until API is loading the Data  will be displayed as shimmer UI which is used latestly.
+    //This below concept is known as Conditional Rendering
+    // if (listofResturants.length === 0){
+    //     return(
+    //         <Shimmer />
+    //     )
+    // }
 
-    if (listofResturants.length === 0){
-        return(
-            <Shimmer />
-        )
-    }
+    //Another way of writing this conditional rendering is  by using ternary operator ?:
+    return listofResturants.length === 0 ? (<Shimmer />) : (
+        <div className='body'>
+            {/* Creating the folter button */}
+            <div className='resfilter'>
+                <button onClick={() => {
+                    const filterlist = listofResturants.filter((res) => res.info.avgRating > 4.3);
+                    setlistofResturants(filterlist);
+                    console.log(filterlist)
+                }}>Top Rated Restaurant</button>
 
-
-
-    return (
-            <div className='body'>
-                {/* Creating the folter button */}
-                <div className='resfilter'>
-                    <button onClick={() => {
-                        const filterlist = listofResturants.filter((res) => res.info.avgRating > 4);
-                        setlistofResturants(filterlist);
-                    }}>Top Rated Restaurant</button>
-
-                    {/* Resturant Cards */}
-                    <div className='main'>
-                        <div className='carddisplay'>
-                            {
-                                listofResturants.map((restaurant, i) => (<Card key={i} restData={restaurant} />))
-                            }
-                        </div>
+                {/* Resturant Cards */}
+                <div className='main'>
+                    <div className='carddisplay'>
+                        {
+                            listofResturants.map((restaurant, i) => (<Card key={i} restData={restaurant} />))
+                        }
                     </div>
                 </div>
-            </div >// 
-        );
+            </div>
+        </div >// 
+    );
 };
 
 
