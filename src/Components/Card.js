@@ -1,4 +1,4 @@
-/// Taking out the data from API through props and destructuring there values
+/// Taking out the data from Local API through props and destructuring there values
 import { CND_URL } from "../utils/constants";
 
 const Card = (props) => {
