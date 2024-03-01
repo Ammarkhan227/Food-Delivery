@@ -2,6 +2,7 @@ import Card from './Card'
 import { useState } from "react";
 import { useEffect } from 'react';
 import Shimmer from './Shimmer';
+import Blank from './Blank';
 
 
 
@@ -9,6 +10,14 @@ const Body = () => {
 
     //Using useState below to render the filtered returants
     const [listofResturants, setlistofResturants] = useState([]);
+
+    // This below copy of returants will be used for showing the filtered resturants !!!
+    const [filterResturant, setfilterResturant] = useState("");
+
+
+
+    // Using useSate for generating the filtering of Resturants !!!
+    const [inputData, setinputData] = useState("");
 
     // fetching the API from Swiggy website we use useEffect !!!
     useEffect(() => {
@@ -24,37 +33,63 @@ const Body = () => {
         //Now we put  this in our listofResturants using set !!!
         setlistofResturants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         console.log(json)
+        setfilterResturant(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+
     };
 
     // Until API is loading the Data  will be displayed as shimmer UI which is used latestly.
     //This below concept is known as Conditional Rendering
-    // if (listofResturants.length === 0){
-    //     return(
-    //         <Shimmer />
-    //     )
-    // }
+    if (listofResturants?.length === 0) {
+        return (
+            <Shimmer />
+        )
+    };
 
-    //Another way of writing this conditional rendering is  by using ternary operator ?:
-    return listofResturants.length === 0 ? (<Shimmer />) : (
+    if (filterResturant?.length === 0) {
+        return (
+            <Blank />
+        )
+    }
+
+    //Another way of writing this conditional rendering is  by using ternary operator ?
+
+    // return listofResturants.length === 0 ? (<Shimmer />) : 
+    return (
         <div className='body'>
-            {/* Creating the folter button */}
-            <div className='resfilter'>
-                <button onClick={() => {
-                    const filterlist = listofResturants.filter((res) => res.info.avgRating > 4.3);
-                    setlistofResturants(filterlist);
-                    console.log(filterlist)
-                }}>Top Rated Restaurant</button>
+            <div className='filter'>
+                {/* Search filter */}
+                <div className='search'>
+                    <input className='searchbar' type="text" placeholder="Search For Foods..." value={inputData} onChange={(e) => {
+                        setinputData(e.target.value)
+                    }} />
+                    <button className='searchbtn' onClick={() => {
+                        const filRest = listofResturants.filter(
+                            // to lowercase() funstion will help for not getting stuck the search if someone typed in capital
+                            (res) => res?.info?.name?.toLowerCase()?.includes(inputData.toLowerCase())
+                        );
+                        setfilterResturant(filRest);
+                    }}>Search</button>
+                </div>
 
-                {/* Resturant Cards */}
-                <div className='main'>
-                    <div className='carddisplay'>
-                        {
-                            listofResturants.map((restaurant, i) => (<Card key={i} restData={restaurant} />))
-                        }
-                    </div>
+                {/* Creating the filter button */}
+                <div className='resfilter'>
+                    <button onClick={() => {
+                        const filterlist = listofResturants.filter((res) => res.info.avgRating > 4.3);
+                        setfilterResturant(filterlist);
+                        console.log(filterlist)
+                    }}>Top Rated Restaurant</button>
+                </div>
+
+            </div>
+            {/* Resturant Cards */}
+            <div className='main'>
+                <div className='carddisplay'>
+                    {
+                        filterResturant?.map((restaurant, i) => (<Card key={i} restData={restaurant} />))
+                    }
                 </div>
             </div>
-        </div >// 
+        </div >
     );
 };
 

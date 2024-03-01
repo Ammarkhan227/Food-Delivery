@@ -1,18 +1,16 @@
 import { LOGO_URL } from "../utils/constants";
 import { useState } from "react";
+import Body from "./Body";
+
 
 
 
 const Header = () => {
     const [btnNameReact, setbtnNameReact] = useState("Login");
-    const [inputData, setinputData] = useState("");
+    
     return (
         <div className='header'>
             <img className='headlogo' src={LOGO_URL} />
-            <div className='search'>
-                <input className='searchbar' type="text" placeholder="Search For Foods..." value={inputData} onChange={(e) => { setinputData(e.target.value) }} /><br />
-                <button className='searchbtn' onClick={() => { console.log(inputData) }}>Search</button>
-            </div>
             <div className='navlink'>
                 <ul>
                     <li>Search</li>

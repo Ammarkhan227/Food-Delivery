@@ -45,23 +45,49 @@
   cursor: pointer;
   text-shadow: 2px 2px 40px white;
 }
+
+.body {
+  width: 100%;
+  height: auto;
+  justify-content: center;
+  align-content: center;
+  position: relative;
+}
+
+.filter {
+  display: flex;
+  margin-bottom: 40px;
+  justify-content: space-around;
+}
+.resfilter > button {
+  padding: 8px 10px;
+  margin-top: 30px;
+  position: relative;
+  float: right;
+  background-color: transparent;
+  color: white;
+  border-style: none;
+  font-size: 20px;
+  font-weight: 400;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.resfilter > button:hover {
+  text-shadow: 3px 3px 10px white;
+  cursor: pointer;
+}
 .search {
   display: flex;
   margin: 40px 20px 25px 10rem;
 }
 .searchbar {
-  padding: 0px 8rem;
+  padding: 12px 10rem;
   border-radius: 5px;
-  margin-right: 10px;
   font-size: 20px;
   border-style: none;
-}
-.searchbar:hover {
-  border-style: none;
-  box-shadow: 2px 2px 10px white;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 .searchbtn {
+  margin-left: 30px;
   padding: 0px 30px;
   cursor: pointer;
   font-weight: 400;
@@ -73,29 +99,6 @@
 }
 .searchbtn:hover {
   text-shadow: 2px 2px 10px white;
-}
-.body {
-  width: 100%;
-  height: auto;
-  justify-content: center;
-  align-content: center;
-  position: relative;
-}
-.resfilter > button {
-  padding: 8px 10px;
-  position: relative;
-  float: right;
-  margin-right: 40px;
-  background-color: transparent;
-  color: white;
-  border-style: none;
-  font-size: 20px;
-  font-weight: 400;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
-.resfilter > button:hover {
-  text-shadow: 3px 3px 10px white;
-  cursor: pointer;
 }
 .restcard {
   width: 250px;
@@ -111,7 +114,7 @@
 .restcard:hover {
   transform: scale(1.1);
   transition: 0.5s;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(80, 227, 173, 0.1);
   box-shadow: 5px;
   box-shadow: 1px 1px 10px white;
 }
@@ -149,6 +152,9 @@
 }
 
 /* shrimmer */
+.shimmermain {
+  justify-content: center;
+}
 .shimcards {
   display: flex;
   flex-wrap: wrap;
@@ -173,4 +179,28 @@
   margin-right: 40px;
   background-color: #f3f3f3;
   opacity: 0.1;
+}
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 80px;
+  padding: 8px;
+  margin-left: 42rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #25b09b;
+  --_m: conic-gradient(#0000 10%, #000), linear-gradient(#000 0 0) content-box;
+  -webkit-mask: var(--_m);
+  mask: var(--_m);
+  -webkit-mask-composite: source-out;
+  mask-composite: subtract;
+  animation: l3 1s infinite linear;
+}
+@keyframes l3 {
+  to {
+    transform: rotate(2turn);
+  }
+}
+.Blank {
+  color: white;
+  text-align: center;
 }
