@@ -22,10 +22,12 @@ const Card = (props) => {
             <img className='cardimg' src={CND_URL + cloudinaryImageId} />
             <div className='Cardtitle'>
                 <h3 className='cardheading'>{name}</h3>
-                <h4 className='cardsub'>{cuisines.join(", ")}</h4>
-                <h4>Cost: {abj / 2} /Person</h4>
-                <h4>Avg. Rating: {avgRating}*</h4>
-                <h4>Delivery Time: {restData.info.sla.deliveryTime} Minutes</h4>
+                <div className="cardsub">
+                    <h4><span style={{ fontSize: '16px', color: '#ff213f' }}>Cuisines :</span> {cuisines.join(", ")}</h4>
+                    <h4><span style={{ fontSize: '16px', color: '#ff213f' }}>Cost : </span>{abj / 2} /Person</h4>
+                    <h4><span style={{ fontSize: '16px', color: '#ff213f' }}>Avg. Rating : </span>{avgRating}*</h4>
+                    <h4><span style={{ fontSize: '16px', color: '#ff213f' }}>Delivery Time :</span> {restData.info.sla.deliveryTime} Minutes</h4>
+                </div>
             </div>
         </div>
     );
