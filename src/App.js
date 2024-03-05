@@ -5,13 +5,14 @@ import Body from './Components/Body';
 import About from './Components/About';
 import Contact from './Components/Contact';
 import Error from './Components/Error';
+import Menu from './Components/Menu';
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 
 const AppLayout = () => {
     return (
         <div style={{ backgroundColor: '#161934', height: 'auto' }}>
             <Header />
-            <Outlet />            
+            <Outlet />
         </div>
     )
 }
@@ -20,9 +21,9 @@ const appRouter = createBrowserRouter([
     {
         path: '/',
         element: <AppLayout />,
-        children:[
+        children: [
             {
-                path:'/',
+                path: '/',
                 element: <Body />
             },
             {
@@ -32,12 +33,16 @@ const appRouter = createBrowserRouter([
             {
                 path: '/Contact',
                 element: <Contact />
+            },
+            {
+                path:'/restaurant/:resId',
+                element: <Menu />
             }
 
         ],
         errorElement: <Error />
     },
-    
+
 ])
 
 

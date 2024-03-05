@@ -1,9 +1,11 @@
 .header {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: grid;
   justify-content: space-between;
   background-color: transparent;
-  height: 80px;
+  height: 100px;
+  width: 100%;
+  box-shadow: 5px 0px 2px white;
 }
 .login {
   margin-top: 12px;
@@ -35,6 +37,7 @@
   display: flex;
 }
 .navlink > ul > li {
+  text-decoration: none;
   list-style: none;
   padding: 20px 17px 5px 10px;
   font-size: 20px;
@@ -42,10 +45,17 @@
   font-weight: 400;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
+.navitemlink {
+  text-decoration: none;
+  color: #ff213f;
+}
 .navlink > ul > li:hover {
   cursor: pointer;
   text-shadow: 2px 2px 40px white;
 }
+/* .navlink > ul > li > link{
+  text-decoration: none;
+} */
 
 .body {
   width: 100%;
@@ -86,6 +96,7 @@
   font-size: 20px;
   border-style: none;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin-left: 30%;
 }
 .searchbtn {
   margin-left: 30px;
@@ -125,6 +136,9 @@
   justify-content: space-around;
   width: 100%;
   height: auto;
+}
+.cardlink {
+  text-decoration: none;
 }
 .cardimg {
   width: 100%;
@@ -181,10 +195,13 @@
   background-color: #f3f3f3;
   opacity: 0.1;
 }
-/* HTML: <div class="loader"></div> */
+
+/* Loader */
 .loader {
   width: 80px;
   padding: 8px;
+  margin-top: 30px;
+  margin-bottom: 0px;
   margin-left: 45rem;
   aspect-ratio: 1;
   border-radius: 50%;
