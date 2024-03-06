@@ -1,12 +1,13 @@
+import UserClass from "./userClass";
+import UserFunction from "./userFunction";
+
 const About = () => {
     return (
-        <div>
-            <h1>This is the About Page</h1>
-            <h1>This is the About Page</h1>
-            <h1>This is the About Page</h1>
-
-
+        <div style={{ color: 'white' }}>
+            <UserClass name={"Ammar"} contact={"6306101991"} email={"ammakhan101010@gmail.com"} />
+            {/* <UserFunction name={"Abhishek"} contact={"9412564789"} email={"abhishekshukla@gmail.com"} /> */}
         </div>
+
     )
 }
 
