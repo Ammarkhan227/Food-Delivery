@@ -1,14 +1,23 @@
+import React from 'react';
 import UserClass from "./userClass";
-import UserFunction from "./userFunction";
 
-const About = () => {
-    return (
-        <div style={{ color: 'white' }}>
-            <UserClass name={"Ammar"} contact={"6306101991"} email={"ammakhan101010@gmail.com"} />
-            {/* <UserFunction name={"Abhishek"} contact={"9412564789"} email={"abhishekshukla@gmail.com"} /> */}
-        </div>
+class About extends React.Component {
+    constructor() {
+        super();
+        console.log("Parent Consutructor")
+    }
+    componentDidMount() {
+        console.log("Parent conponentDidMount")
+    }
 
-    )
+    render() {
+        console.log("Parent render")
+        return (
+            <div style={{ color: 'white' }}>
+                <UserClass />
+            </div>
+        )
+    }
 }
 
 export default About;

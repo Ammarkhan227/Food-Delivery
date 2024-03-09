@@ -91,12 +91,12 @@
   margin: 40px 20px 25px 10rem;
 }
 .searchbar {
-  padding: 12px 10rem;
+  padding: 8px 8rem;
   border-radius: 5px;
   font-size: 20px;
   border-style: none;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  margin-left: 30%;
+  margin-left: 10%;
 }
 .searchbtn {
   margin-left: 30px;

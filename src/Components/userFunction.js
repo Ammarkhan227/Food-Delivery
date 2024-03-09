@@ -1,17 +1,26 @@
-import { useState } from "react";
+// import React from 'react';
 
-const UserFunction = (props) => {
-    const [count]=useState(0); // 1st State with default value of 0 
-    const [count1]=useState(1); //2nd State with default value of 1
 
-    return (
-        <div>
-            <h1>Count : {count}</h1>
-            <h1>Count1 : {count1}</h1>
-            <h1>My name is : {props.name}</h1>
-            <h2>Contact Me on : {props.contact}</h2>
-            <h3>Reach me on email : {props.email}</h3>
-        </div>
-    )
-}
-export default UserFunction;
+// class UserFunction extends React.Component {
+//     constructor() {
+//         super();
+//         console.log("User Function Constructor Called");
+//     }
+
+//     componentDidMount() {
+//         console.log("User Function Component Mounted");
+//     }
+
+//     render() {
+//         console.log("User Function Component render")
+//         return (
+//             <div>
+//                 <h1>Number</h1>
+//                 <h1>My name is Subchild</h1>
+//                 <h2>Contact Me on : 0974923492874092</h2>
+//                 <h3>Reach me on email jitendra@gmail.com</h3>
+//             </div>
+//         )
+//     }
+// }
+// export default UserFunction;

@@ -1,27 +1,46 @@
 import React from 'react';
+import UserFunction from './userFunction';
 
 class UserClass extends React.Component {
-    constructor(props) { //Passing props in a class based compenents !!!
-        super();
 
-        this.state = {
-            count: 0, // First State
-            count1: 1 // 2nd State
+    constructor(props) { //Passing props in a class based compenents !!!
+        super(props);
+        // preventDefault();
+
+        this.state = {  //creating the default values for state
+            userInfo: {
+                name: "Dummy",
+                location: "Dummy"
+            } // First State
         }
+        // console.log("Child Constructor")
+    }
+
+    async componentDidMount() { // fetching the data by api
+        const data = await fetch("https://api.github.com/users/Ammarkhan227");
+        const json = await data.json();
+
+        this.setState({
+            userInfo: json,
+        });
+        // console.log(json);
+
+    }
+
+    componentDidUpdate() {
+        console.log("Component Updated")
+    }
+    componentWillUnmount() {
+        console.log("Component will be removed from DOM")
     }
     render() {
-        const { name, contact, email } = this.props;  //destructuring assignment !!!
-        const { count, count1 } = this.state;
+        const { name, location, avatar_url, created_at } = this.state.userInfo;  //destructuring assignment !!!
+        console.log("Child Render with API Data")
         return (
             <div>
-                <h1>Count : {count}</h1>
-                 {/* <button onClick={this.setState({
-                    count : this.state.count +1
-                })}>For count</button> */}
-
                 <h1>My name is : {name}</h1>
-                <h2>Contact Me on : {contact}</h2>
-                <h3>Reach me on email : {email}</h3>
+                <h2>Created At: {created_at}</h2>
+                <h3><img src={avatar_url} /></h3>
             </div>
         )
     }

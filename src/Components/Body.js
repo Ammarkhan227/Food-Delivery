@@ -4,10 +4,14 @@ import { useEffect } from 'react';
 import Shimmer from './Shimmer';
 import Blank from './Blank';
 import { Link } from 'react-router-dom';
+import Useroffline from './Useroffline';
+import useOnlineStatus from '../utils/useOnlineStatus';
+// import  useRestaurantlist  from '../utils/useRestaurantlist';
 
 
 
 const Body = () => {
+    
 
     //Using useState below to render the filtered returants
     const [listofResturants, setlistofResturants] = useState([]);
@@ -33,12 +37,20 @@ const Body = () => {
         const json = await data.json();
 
         //Now we put  this in our listofResturants using set !!!
-        setlistofResturants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setlistofResturants(json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
 
         // Filter useState
-        setfilterResturant(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+        setfilterResturant(json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
 
     };
+
+    //For checking user Online/Offline Status !!!
+    const onlineStatus = useOnlineStatus();
+    if (onlineStatus === false)
+        return (
+            <Useroffline />
+            // <h1>You are Offline</h1>
+        );
 
     // Until API is loading the Data  will be displayed as shimmer UI which is used latestly.
     //This below concept is known as Conditional Rendering
@@ -52,7 +64,9 @@ const Body = () => {
         return (
             <Blank />
         )
-    }
+    };
+
+
 
     //Another way of writing this conditional rendering is  by using ternary operator ?
 
