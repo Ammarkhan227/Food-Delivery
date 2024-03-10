@@ -11,7 +11,7 @@ import useOnlineStatus from '../utils/useOnlineStatus';
 
 
 const Body = () => {
-    
+
 
     //Using useState below to render the filtered returants
     const [listofResturants, setlistofResturants] = useState([]);
@@ -37,10 +37,10 @@ const Body = () => {
         const json = await data.json();
 
         //Now we put  this in our listofResturants using set !!!
-        setlistofResturants(json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setlistofResturants(json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants || json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
 
         // Filter useState
-        setfilterResturant(json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+        setfilterResturant(json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants || json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
 
     };
 
