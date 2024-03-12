@@ -6,7 +6,7 @@ import Blank from './Blank';
 import { Link } from 'react-router-dom';
 import Useroffline from './Useroffline';
 import useOnlineStatus from '../utils/useOnlineStatus';
-// import  useRestaurantlist  from '../utils/useRestaurantlist';
+import useRestaurantlist from '../utils/useRestaurantlist';
 
 
 
@@ -14,36 +14,21 @@ const Body = () => {
 
 
     //Using useState below to render the filtered returants
-    const [listofResturants, setlistofResturants] = useState([]);
+    const listofResturants = useRestaurantlist();
 
     // This below copy of returants will be used for showing the filtered resturants !!!
-    const [filterResturant, setfilterResturant] = useState("");
+    const [filterResturant, setfilterResturant] = useState([]);
+
+    useEffect(() => {
+
+        setfilterResturant(listofResturants)
+    }, [listofResturants]);
 
 
-
-    // Using useSate for generating the filtering of Resturants !!!
+    // Using useSate for generating the Searching of Resturants !!!
     const [inputData, setinputData] = useState("");
 
-    // fetching the API from Swiggy website we use useEffect !!!
-    useEffect(() => {
-        fetchData();
-    }, []);
-
-    // creating function to fetch Data from API !!!
-    const fetchData = async () => {
-        // fetching data from original swiggy API !!!
-        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.7883075&lng=83.3856162&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
-        //Now we convert the Data which we have got from API to  JSON format.!!!
-        const json = await data.json();
-
-        //Now we put  this in our listofResturants using set !!!
-        setlistofResturants(json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants || json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-
-        // Filter useState
-        setfilterResturant(json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants || json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-
-    };
-
+    
     //For checking user Online/Offline Status !!!
     const onlineStatus = useOnlineStatus();
     if (onlineStatus === false)
