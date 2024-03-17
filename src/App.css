@@ -1,4 +1,4 @@
-.header {
+/* .header {
   display: flex;
   flex-wrap: grid;
   justify-content: space-between;
@@ -57,7 +57,7 @@
   text-decoration: none;
 } */
 
-.body {
+/* .body {
   width: 100%;
   height: auto;
   justify-content: center;
@@ -167,7 +167,7 @@
 }
 
 /* shrimmer */
-.shimmermain {
+/* .shimmermain {
   justify-content: center;
 }
 .shimcards {
@@ -222,7 +222,7 @@
 }
 
 /* Error */
-.page_404 {
+/* .page_404 {
   padding: 40px 0;
   background: #fff;
   font-family: "Arvo", serif;
@@ -257,4 +257,11 @@
 .contant_box_404 {
   margin-top: -50px;
   text-align: center;
-}
+} */
+
+/* Grocery */
+/* .grocery {
+  background-image: " https://images.pexels.com/photos/13119615/pexels-photo-13119615.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2";
+  background-attachment: inherit;
+  color: white;
+}   */

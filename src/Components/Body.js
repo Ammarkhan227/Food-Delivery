@@ -28,7 +28,7 @@ const Body = () => {
     // Using useSate for generating the Searching of Resturants !!!
     const [inputData, setinputData] = useState("");
 
-    
+
     //For checking user Online/Offline Status !!!
     const onlineStatus = useOnlineStatus();
     if (onlineStatus === false)
@@ -57,11 +57,11 @@ const Body = () => {
 
     // return listofResturants.length === 0 ? (<Shimmer />) : 
     return (
-        <div className='body'>
-            <div className='filter'>
+        <div className='justify-around'>
+            <div>
                 {/* Search filter */}
-                <div className='search'>
-                    <input className='searchbar' type="text" placeholder="Search For Foods..." value={inputData} onChange={(e) => {
+                <div className='py-5'>
+                    <input className='border-spacing-3' type="text" placeholder="Search For Foods..." value={inputData} onChange={(e) => {
                         setinputData(e.target.value)
                     }} />
                     <button className='searchbtn' onClick={() => {
@@ -78,14 +78,13 @@ const Body = () => {
                     <button onClick={() => {
                         const filterlist = listofResturants.filter((res) => res.info.avgRating > 4.3);
                         setfilterResturant(filterlist);
-                        console.log(filterlist)
                     }}>Top Rated Restaurant</button>
                 </div>
 
             </div>
             {/* Resturant Cards */}
-            <div className='main'>
-                <div className='carddisplay'>
+            <div className='flex justify-between'>
+                <div>
                     {
                         filterResturant?.map((restaurant) => (<Link className="cardlink" key={restaurant.info.id} to={"/restaurant/" + restaurant.info.id}><Card restData={restaurant} /></Link>))
                     }
