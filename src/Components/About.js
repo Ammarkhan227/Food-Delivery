@@ -6,12 +6,12 @@ class About extends React.Component {
         super();
     }
     componentDidMount() {
-        
+
     }
 
     render() {
         return (
-            <div style={{ color: 'white' }}>
+            <div>
                 <UserClass />
             </div>
         )

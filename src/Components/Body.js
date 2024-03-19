@@ -15,6 +15,11 @@ const Body = () => {
 
     //Using useState below to render the filtered returants
     const listofResturants = useRestaurantlist();
+    if (listofResturants?.length === 0) {
+        return (
+            <Shimmer />
+        )
+    };
 
     // This below copy of returants will be used for showing the filtered resturants !!!
     const [filterResturant, setfilterResturant] = useState([]);
@@ -23,6 +28,8 @@ const Body = () => {
 
         setfilterResturant(listofResturants)
     }, [listofResturants]);
+
+    
 
 
     // Using useSate for generating the Searching of Resturants !!!
@@ -39,11 +46,7 @@ const Body = () => {
 
     // Until API is loading the Data  will be displayed as shimmer UI which is used latestly.
     //This below concept is known as Conditional Rendering
-    if (listofResturants?.length === 0) {
-        return (
-            <Shimmer />
-        )
-    };
+   
 
     if (filterResturant?.length === 0) {
         return (
@@ -57,14 +60,14 @@ const Body = () => {
 
     // return listofResturants.length === 0 ? (<Shimmer />) : 
     return (
-        <div className='justify-around'>
-            <div>
+        <div>
+            <div className='flex justify-around py-3 bg-transparent'>
                 {/* Search filter */}
-                <div className='py-5'>
-                    <input className='border-spacing-3' type="text" placeholder="Search For Foods..." value={inputData} onChange={(e) => {
+                <div className='px-8'>
+                    <input className='ml-48 px-40 py-2 rounded-md' type="text" placeholder="Search For Foods..." value={inputData} onChange={(e) => {
                         setinputData(e.target.value)
                     }} />
-                    <button className='searchbtn' onClick={() => {
+                    <button className='rounded-md bg-slate-400 p-2 mt-3 ml-10' onClick={() => {
                         const filRest = listofResturants.filter(
                             // to lowercase() funstion will help for not getting stuck the search if someone typed in capital
                             (res) => res?.info?.name?.toLowerCase()?.includes(inputData.toLowerCase())
@@ -74,8 +77,8 @@ const Body = () => {
                 </div>
 
                 {/* Creating the filter button */}
-                <div className='resfilter'>
-                    <button onClick={() => {
+                <div>
+                    <button className='rounded-md bg-slate-400 p-2 my-3' onClick={() => {
                         const filterlist = listofResturants.filter((res) => res.info.avgRating > 4.3);
                         setfilterResturant(filterlist);
                     }}>Top Rated Restaurant</button>
@@ -83,8 +86,8 @@ const Body = () => {
 
             </div>
             {/* Resturant Cards */}
-            <div className='flex justify-between'>
-                <div>
+            <div >
+                <div className='flex flex-wrap justify-around  bg-transparent'>
                     {
                         filterResturant?.map((restaurant) => (<Link className="cardlink" key={restaurant.info.id} to={"/restaurant/" + restaurant.info.id}><Card restData={restaurant} /></Link>))
                     }
