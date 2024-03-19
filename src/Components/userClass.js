@@ -37,7 +37,7 @@ class UserClass extends React.Component {
         const { name, location, avatar_url, created_at } = this.state.userInfo;  //destructuring assignment !!!
         console.log("Child Render with API Data")
         return (
-            <div className='flex justify-around my-24 rounded-lg bg-yellow-100'>
+            <div className='flex justify-around my-24 rounded-lg bg-yellow-100 shadow-lg'>
                 <div className='text-size-7 w-1/2 my-8'>
                     {/* <h1 className=''>My name is : {name}</h1>
                     <h2>Created At: {created_at}</h2> */}

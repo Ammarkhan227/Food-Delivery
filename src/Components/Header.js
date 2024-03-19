@@ -23,7 +23,7 @@ const Header = () => {
                     <li><Link to="/grocery" className="pr-3">Grocery</Link></li>
                     <li><Link to="#" className="pr-3">Cart</Link></li>
                 </ul>
-                <button className='bg-slate-400 rounded-md px-8 hover: px-13' onClick={() => {
+                <button className='bg-orange-400 rounded-md px-8 hover: px-13' onClick={() => {
                     // Here we have writtent below that is btnnamereact is login then we can change it to logout otherwise it sould be login !!!
                     btnNameReact === "Login" ? setbtnNameReact("Logout") : setbtnNameReact("Login")
                 }}>{btnNameReact}</button>
