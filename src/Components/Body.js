@@ -63,10 +63,10 @@ const Body = () => {
     return (
 
         <div>
-            <div className='flex justify-around py-3 bg-transparent'>
+            <div className='flex justify-around py-3 bg-slate-100'>
                 {/* Search filter */}
                 <div className='px-8'>
-                    <input className='ml-48 px-40 py-2 rounded-md' type="text" placeholder="Search For Foods..." value={inputData} onChange={(e) => {
+                    <input className='ml-48 px-40 py-2 rounded-md border-solid bg-orange-200' type="text" placeholder="Search For Foods..." value={inputData} onChange={(e) => {
                         setinputData(e.target.value)
                     }} />
                     <button className='rounded-md bg-green-500 px-4 py-1 mt-3 ml-10 shadow-md' onClick={() => {
@@ -89,8 +89,8 @@ const Body = () => {
             </div>
             {/* Resturant Cards */}
 
-            <div >
-                <div className='flex flex-wrap justify-around shadow-lg'>
+            <div className='bg-slate-100'>
+                <div className='flex flex-wrap justify-around shadow-l'>
 
                     {
                         filterResturant?.map((restaurant) => (<Link className="cardlink" key={restaurant.info.id} to={"/restaurant/" + restaurant.info.id}><Card restData={restaurant} /></Link>))
