@@ -37,11 +37,11 @@ class UserClass extends React.Component {
         const { name, location, avatar_url, created_at } = this.state.userInfo;  //destructuring assignment !!!
         console.log("Child Render with API Data")
         return (
-            <div className='flex justify-around my-24 rounded-lg bg-yellow-100 shadow-lg'>
+            <div className='flex justify-around my-24 rounded-lg bg-yellow-50 shadow-lg'>
                 <div className='text-size-7 w-1/2 my-8'>
                     {/* <h1 className=''>My name is : {name}</h1>
                     <h2>Created At: {created_at}</h2> */}
-                    <h3 className='text-slate-800'>Hello there! I'm Ammar, a passionate and aspiring web developer with a keen interest in crafting immersive digital experiences.
+                    <h3 className='text-slate-800 font-bold text-1xl font-serif '>Hello there! I'm Ammar, a passionate and aspiring web developer with a keen interest in crafting immersive digital experiences.
 
                         Ever since I laid my hands on coding, I've been captivated by the endless possibilities it offers to create innovative solutions and bring ideas to life on the web.
 
@@ -53,8 +53,8 @@ class UserClass extends React.Component {
 
                         Outside of coding, you can find me exploring the latest web development trends, attending tech meetups, or immersing myself in creative pursuits that inspire my work.</h3>
                 </div>
-                <div className='1/2 my-5'>
-                    <img className='w-[20rem] rounded-full shadow-lg' src={avatar_url} />
+                <div className='1/2 my-5 pt-8'>
+                    <img className='w-[20rem] rounded-full shadow-xl' src={avatar_url} />
                 </div>
             </div>
         )

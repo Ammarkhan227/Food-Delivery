@@ -10,7 +10,7 @@ const Header = () => {
 
 
     return (
-        <div className='flex justify-between bg-transparent bg-green-200'>
+        <div className='flex justify-between bg-slate-100 shadow-md'>
             <Link to='/'><img className='w-20 h-20 mx-10 my-1' src={LOGO_URL} /></Link>
             <h5 className='my-8'>
                 Internet Status : {onlineStatus ? "🟢 Online" : "🔴 Offline"}
@@ -23,7 +23,7 @@ const Header = () => {
                     <li className="px-4 font-bold text-2xl text-red-700"><Link to="/grocery" className="pr-3">Grocery</Link></li>
                     <li className="px-4 font-bold text-2xl text-red-700"><Link to="#" className="pr-3">Cart</Link></li>
                 </ul>
-                <button className='bg-orange-400 rounded-md px-8 hover: px-13' onClick={() => {
+                <button className='bg-orange-400 rounded-md px-8 hover: px-13 shadow-md' onClick={() => {
                     // Here we have writtent below that is btnnamereact is login then we can change it to logout otherwise it sould be login !!!
                     btnNameReact === "Login" ? setbtnNameReact("Logout") : setbtnNameReact("Login")
                 }}>{btnNameReact}</button>

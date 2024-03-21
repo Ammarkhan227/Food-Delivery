@@ -16,10 +16,10 @@ const Card = (props) => {
     let arr = costForTwo?.split(" ")
     let abj = Number(arr[0]?.substring(1))
     return (
-        <div className='w-60 h-96 p-2 rounded-md my-3 bg-yellow-100'>
-            <img className='w-60 h-40 rounded-md' src={CND_URL + cloudinaryImageId} />
+        <div className='w-60 h-96 p-2 rounded-lg my-3 bg-yellow-50 shadow-lg hover:bg-blue-100'>
+            <img className='w-60 h-40 rounded-lg' src={CND_URL + cloudinaryImageId} />
             <div className='pt-5'>
-                <h3 className='font-bold font-sans text-red-500'>{name}</h3>
+                <h3 className='font-bold font-sans text-red-600'>{name}</h3>
                 <div className='p-1'>
                     <h4><span className="font-bold">Cuisines :</span> {cuisines.join(", ")}</h4>
                     <h4><span className='font-bold'>Cost : </span>{abj / 2} /Person</h4>

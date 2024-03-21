@@ -45,7 +45,9 @@ const Body = () => {
 
     if (filterResturant?.length === 0) {
         return (
-            <Shimmer />
+            <div>
+                <h2 className='text-3xl text-slate-700'> Currenty no returants serving this food item</h2>
+            </div>
         )
     };
 
@@ -66,10 +68,10 @@ const Body = () => {
             <div className='flex justify-around py-3 bg-slate-100'>
                 {/* Search filter */}
                 <div className='px-8'>
-                    <input className='ml-48 px-40 py-2 rounded-md border-solid bg-orange-200' type="text" placeholder="Search For Foods..." value={inputData} onChange={(e) => {
+                    <input className='ml-48 px-40 py-2 rounded-md border-solid bg-orange-100 shadow-md' type="text" placeholder="Search For Foods..." value={inputData} onChange={(e) => {
                         setinputData(e.target.value)
                     }} />
-                    <button className='rounded-md bg-green-500 px-4 py-1 mt-3 ml-10 shadow-md' onClick={() => {
+                    <button className='rounded-md bg-green-500 px-6 py-2 mt-3 ml-10 shadow-md' onClick={() => {
                         const filRest = listofResturants.filter(
                             // to lowercase() funstion will help for not getting stuck the search if someone typed in capital
                             (res) => res?.info?.name?.toLowerCase()?.includes(inputData.toLowerCase())
